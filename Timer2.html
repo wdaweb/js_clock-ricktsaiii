@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Document</title>
+  <link href="https://allfont.net/allfont.css?fonts=ds-digital" rel="stylesheet" />
+</head>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .bg {
+    width: 100%;
+    height: 100vh;
+    background: rgb(29, 121, 254);
+  }
+
+  #clock {
+    /* border: white 1px solid; */
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    float: left;
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+  }
+
+  #hour {
+    border-color: white;
+    border-style: none solid solid;
+    border-width: 1px 1px 10px 30px;
+    clip-path: polygon(0 -20%, 100% 41%, 120% 60%, 0 90%);
+    height: 0px;
+    width: 100px;
+    position: absolute;
+    /* border-radius: 45%; */
+    top: calc(50% - 5px);
+    left: calc(50% - 5px);
+    transform: rotate(230deg);
+    transform-origin: left center;
+
+  }
+
+  #minute {
+    background: white;
+    width: 30%;
+    height: 15px;
+    position: absolute;
+    border-radius: 50%;
+    top: calc(50% - 5px);
+    left: calc(50% - 5px);
+    transform: rotate(150deg);
+    clip-path: polygon(0% 10%, 100% 41%, 100% 60%, 0% 90%);
+    transform-origin: left center;
+
+  }
+
+  #second {
+    background: white;
+    width: 35%;
+    height: 5px;
+    position: absolute;
+    border-radius: 20%;
+    top: calc(50% - 2.5px);
+    left: calc(50% - 2.5px);
+    transform: rotate(240deg);
+    clip-path: polygon(0 10%, 100% 41%, 100% 60%, 0 90%);
+    transform-origin: left center;
+
+  }
+
+  .text {
+    width: 250px;
+    height: 250px;
+    /* border: white 1px solid;  */
+    font-size: 60px;
+    font-family: 'DS-Digital', arial;
+    color: white;
+    /* display: flex; */
+    justify-content: center;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+
+  }
+
+  .number123 {
+    display: flex;
+    justify-content: center;
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    left: calc(50% - 125px);
+  }
+
+  .fake_number {
+    width: 250px;
+    height: 250px;
+    /* border: white 1px solid; */
+    justify-content: center;
+    position: relative;
+    left: 50%;
+    display: flex;
+    transform: translate(-50%);
+  }
+
+  #hour12 {
+    /* border: white 1px solid; */
+    left: -5px;
+    top: 20px;
+    transform-origin: center bottom;
+    transform: translate(-50% -50%);
+  }
+
+  #hour1 {
+    width: 30px;
+    height: 30px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    justify-content: center;
+    margin-top: 20px;
+    transform: rotate(30deg);
+    top: 16%;
+    left: 80%;
+    transform-origin: center bottom;
+  }
+
+  #hour2 {
+    width: 30px;
+    height: 30px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    justify-content: center;
+    margin-top: 20px;
+    transform: rotate(30deg);
+    top: 45%;
+    left: 109%;
+    transform-origin: center bottom;
+  }
+
+  #hour3 {
+    /* border: white 1px solid; */
+    left: 200px;
+    top: 210px;
+    transform-origin: center bottom;
+    transform: translate(-50% -50%);
+  }
+
+  #hour4 {
+    width: 30px;
+    height: 30px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    justify-content: center;
+    margin-top: 20px;
+    transform: rotate(30deg);
+    top: 125%;
+    left: 109%;
+    transform-origin: center bottom;
+  }
+
+  #hour5 {
+    width: 30px;
+    height: 30px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    justify-content: center;
+    margin-top: 20px;
+    transform: rotate(30deg);
+    top: 155%;
+    left: 80%;
+    transform-origin: center bottom;
+  }
+
+  #hour6 {
+    /* border: white 1px solid; */
+    left: -5px;
+    top: 420px;
+    transform-origin: center bottom;
+    transform: translate(-50% -50%);
+  }
+
+  #hour7 {
+    width: 30px;
+    height: 30px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    justify-content: center;
+    margin-top: 20px;
+    transform: rotate(30deg);
+    top: 155%;
+    left: 0%;
+    transform-origin: center bottom;
+  }
+
+  #hour8 {
+    width: 30px;
+    height: 30px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    justify-content: center;
+    margin-top: 20px;
+    transform: rotate(30deg);
+    top: 125%;
+    left: -30%;
+    transform-origin: center bottom;
+  }
+
+  #hour9 {
+    /* border: white 1px solid; */
+    left: -200px;
+    top: 210px;
+    transform-origin: center bottom;
+    transform: translate(-50% -50%);
+  }
+
+  #hour10 {
+    width: 30px;
+    height: 30px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    justify-content: center;
+    margin-top: 20px;
+    transform: rotate(30deg);
+    top: 45%;
+    left: -30%;
+    transform-origin: center bottom;
+  }
+
+  #hour11 {
+    width: 30px;
+    height: 30px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    justify-content: center;
+    margin-top: 20px;
+    transform: rotate(30deg);
+    top: 15%;
+    left: 0%;
+    transform-origin: center bottom;
+  }
+
+  .s_circle {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    top: 45%;
+    left: 44%;
+    /* transform: translate(-50%, -50%); */
+
+  }
+
+  .b_circle {
+    width: 500px;
+    height: 500px;
+    position: relative;
+    top: 0%;
+    left: 0%;
+    /* transform: translate(-50%, -50%); */
+
+  }
+
+  #circle0 {
+    width: 25px;
+    height: 25px;
+    border: white 6px solid;
+    background: rgb(29, 121, 254);
+    box-shadow: 0 0 5px 1px rgb(20, 77, 156);
+    border-radius: 50%;
+    position: absolute;
+    top: 11px;
+    left: 11px;
+    z-index: 3;
+  }
+
+  #circle1 {
+    width: 50px;
+    height: 50px;
+    background: rgb(29, 121, 254);
+    box-shadow: 0 0 5px 1px rgb(20, 77, 156);
+    border-radius: 50%;
+    position: absolute;
+
+  }
+
+  #circle2 {
+    width: 50px;
+    height: 50px;
+    /* background: rgb(29, 121, 254); */
+    box-shadow: 0 0 5px 1px rgb(20, 77, 156);
+    border-radius: 50%;
+    position: absolute;
+    animation-name: oxxo2;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  }
+
+  #circle3 {
+    width: 50px;
+    height: 50px;
+    /* background: rgb(29, 121, 254); */
+    box-shadow: 0 0 5px 1px rgb(20, 77, 156);
+    border-radius: 50%;
+    position: absolute;
+    animation-name: oxxo3;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  }
+
+  #circle4 {
+    width: 500px;
+    height: 500px;
+    /* background: rgb(29, 121, 254); */
+    box-shadow: 0 0 5px 1px rgb(20, 77, 156);
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* animation-name: oxxo3;
+    animation-duration: 2s;
+    animation-iteration-count: infinite; */
+    /* transform: translate(-50% -50%); */
+  }
+
+  #circle5 {
+    width: 500px;
+    height: 500px;
+    /* background: rgb(29, 121, 254); */
+    box-shadow: 0 0 5px 1px rgb(20, 77, 156);
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation-name: oxxo5;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    transform: translate(-50% -50%);
+  }
+
+  #circle6 {
+    width: 550px;
+    height: 550px;
+    /* background: rgb(29, 121, 254); */
+    box-shadow: 0 0 5px 1px rgb(20, 77, 156);
+    border-radius: 50%;
+    position: absolute;
+    top: -25px;
+    left: -25px;
+    animation-name: oxxo6;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  }
+
+  #circle7 {
+    width: 550px;
+    height: 550px;
+    /* background: rgb(29, 121, 254); */
+    box-shadow: 0 0 5px 1px rgb(20, 77, 156);
+    border-radius: 50%;
+    position: absolute;
+    top: -25px;
+    left: -25px;
+    animation-name: oxxo7;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  }
+
+
+
+  @keyframes oxxo2 {
+    0% {
+      transform: scale(1, 1);
+    }
+
+    50% {
+      transform: scale(0.9, 0.9);
+    }
+  }
+
+  @keyframes oxxo3 {
+    0% {
+      transform: scale(1, 1);
+    }
+
+    50% {
+      transform: scale(0.8, 0.8);
+    }
+  }
+
+  @keyframes oxxo5 {
+    0% {
+      transform: scale(1, 1);
+    }
+
+    50% {
+      transform: scale(1.2, 1.2);
+    }
+  }
+
+  @keyframes oxxo6 {
+    0% {
+      transform: scale(1, 1);
+    }
+
+    50% {
+      transform: scale(1.5, 1.5);
+    }
+  }
+
+
+  @keyframes oxxo7 {
+    0% {
+      transform: scale(1, 1);
+    }
+
+    50% {
+      transform: scale(1.3, 1.3);
+    }
+  }
+</style>
+
+<body>
+  <div class="bg">
+    <div id="clock">
+      <div class="s_circle">
+        <!-- 小圈 -->
+        <div id="circle0"></div>
+        <div id="circle1"></div>
+        <div id="circle2"></div>
+        <div id="circle3"></div>
+      </div>
+      <div class="b_circle">
+        <!-- 大圈 -->
+        <div id="circle4"></div>
+        <div id="circle5"></div>
+        <div id="circle6"></div>
+        <div id="circle7"></div>
+
+
+        <div class="text">
+          <div class="number">
+            <p class="number123" id="hour12">12</p>
+            <p class="number123" id="hour3">3</p>
+            <p class="number123" id="hour6">6</p>
+            <p class="number123" id="hour9">9</p>
+          </div>
+          <div class="fake_number">
+            <div id="hour1"></div>
+            <div id="hour2"></div>
+            <div id="hour4"></div>
+            <div id="hour5"></div>
+            <div id="hour7"></div>
+            <div id="hour8"></div>
+            <div id="hour10"></div>
+            <div id="hour11"></div>
+          </div>
+        </div>
+        <div id="hour"></div>
+        <div id="minute"></div>
+        <div id="second"></div>
+      </div>
+    </div>
+
+
+    <div class="box2"></div>
+
+    <script>
+      const hour = document.getElementById('hour')
+      const minute = document.getElementById('minute')
+      const second = document.getElementById('second')
+
+      // setInterval(() => {
+      //   const now = new Date()
+      //   hour.style.transform = `rotate(${30 * now.getHours() - 85}deg)`
+      //   minute.style.transform = `rotate(${6 * now.getMinutes() - 90}deg)`
+      //   second.style.transform = `rotate(${6 * now.getSeconds()}deg)`
+      // })
+    </script>
+</body>
+
+</html>
